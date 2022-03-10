@@ -101,7 +101,7 @@ def get_priors_old(temp_dir: str, roi: str, start_time: str, end_time: str, time
 def preprocess_s2(s2_l1c_dir: str, modis_dir: str, emus_dir: str, cams_dir: str, dem_dir: str, output_root_dir: str,
                roi: str):
     vrt_dem_file = glob.glob(dem_dir + '/' + '*.vrt')[0]
-    processor_dir = '/software/atmospheric_correction/SIAC'
+    processor_dir = '/home/joris/software/atmospheric_correction/SIAC'
     create_dir(output_root_dir)
     dirs = glob.glob(s2_l1c_dir + "/*")
     for directory in dirs:
@@ -132,7 +132,7 @@ def preprocess_s2(s2_l1c_dir: str, modis_dir: str, emus_dir: str, cams_dir: str,
 def preprocess(s2_l1c_dir: str, modis_dir: str, emus_dir: str, cams_dir: str, dem_dir: str, output_root_dir: str,
                roi: str):
     vrt_dem_file = glob.glob(dem_dir + '/' + '*.vrt')[0]
-    processor_dir = '/software/atmospheric_correction_2.0.9/SIAC'
+    processor_dir = '/home/joris/software/atmospheric_correction_2.0.9/SIAC'
     create_dir(output_root_dir)
     dirs = glob.glob(s2_l1c_dir + "/*/*/*/*/*/*/*")
     for dir in dirs:
@@ -194,7 +194,7 @@ def InvTransformation(varname, data):
 def infer(roi: str, start_date: str, end_date: str, previous_state: str, priors_directory: str, sdrs_directory: str,
           next_state: str, biophys_dir: str, parameter_list: List[str], state_mask: Optional[str],
           spatial_resolution: Optional[int], roi_grid: Optional[str], destination_grid: Optional[str]):
-    processor_dir = '/software/inference-engine-0.4/multiply_inference_engine'
+    processor_dir = '/home/joris/software/inference-engine-0.4/multiply_inference_engine'
     s2_emulators_dir = '/data/archive/emulators/s2_prosail'
     inference_type = 'high'
 
@@ -217,7 +217,7 @@ def infer(roi: str, start_date: str, end_date: str, previous_state: str, priors_
 def infer3(roi: str, start_date: str, end_date: str, previous_state: str, priors_directory: str, sdrs_directory: str,
            next_state: str, biophys_dir: str, parameter_list: List[str], state_mask: Optional[str],
            spatial_resolution: Optional[int], roi_grid: Optional[str], destination_grid: Optional[str]):
-    processor_dir = '/software/inference-engine-0.4/multiply_inference_engine'
+    processor_dir = '/home/joris/software/inference-engine-0.4/multiply_inference_engine'
     s2_emulators_dir = '/data/archive/emulators/s2_prosail'
     inference_type = 'high'
 

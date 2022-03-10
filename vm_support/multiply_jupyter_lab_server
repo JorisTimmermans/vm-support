@@ -15,9 +15,9 @@
 
 INSTANCE_NAME=multiply_jupyter_lab_server
 
-CONDA_DIR=/software/miniconda
+CONDA_DIR=/home/joris/software/miniconda
 
-NOTEBOOKS_DIR=/software/multiply-ui/notebooks
+NOTEBOOKS_DIR=/home/joris/software/multiply-ui/notebooks
 
 RUN_AS=ubuntu
 

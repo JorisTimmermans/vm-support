@@ -15,9 +15,9 @@
 
 INSTANCE_NAME=multiply_file_structure_constructor
 
-CONDA_DIR=/software/miniconda
+CONDA_DIR=/home/joris/software/miniconda
 
-SETUP_SCRIPT_FILE=/software/vm-support/vm_support/file_structure_constructor.py
+SETUP_SCRIPT_FILE=/home/joris/software/vm-support/vm_support/file_structure_constructor.py
 
 RUN_AS=ubuntu
 

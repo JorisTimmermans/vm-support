@@ -13,6 +13,7 @@ from multiply_core.util import FileRef, get_time_from_string
 from pathlib import Path
 from typing import List, Optional, Union
 from shapely.wkt import loads
+from sentinelhub import SHConfig
 
 MULTIPLY_DIR_NAME = '.multiply'
 AUX_DATA_PROVIDER_FILE_NAME = 'aux_data_provider.json'
@@ -23,7 +24,7 @@ PATH_TO_VM_DATA_STORES_FILE = pkg_resources.resource_filename(__name__, 'vm_data
 
 
 def get_working_dir(dir_name: str) -> str:
-    working_dir = f'/data/working_dirs/{dir_name}'
+    working_dir = f'/home/joris/data/working_dirs/{dir_name}'
     if os.path.exists(working_dir):
         shutil.rmtree(working_dir)
     os.makedirs(working_dir)
@@ -64,7 +65,7 @@ def create_sar_config_file(temp_dir: str, roi: str, start_time: str, end_time: s
     config = {'SAR': {}}
     config['SAR']['input_folder'] = s1_slc_directory
     config['SAR']['output_folder'] = s1_grd_directory
-    config['SAR']['gpt'] = '/software/snap/bin/gpt'
+    config['SAR']['gpt'] = '/home/jtimmer1/software/snap/bin/gpt'
     config['SAR']['speckle_filter'] = {'multi_temporal': {'apply': 'yes', 'files': temporal_filter}}
     minx, miny, maxx, maxy = loads(roi).bounds
     config['SAR']['region'] = {'ul': {'lat': maxy, 'lon': minx}, 'lr': {'lat': miny, 'lon': maxx}}
@@ -138,6 +139,51 @@ def _set_mundi_authentication_to_aux_data_provider_file(access_key_id: str, secr
     with open(aux_data_provider_file, "w") as json_file:
         json.dump(aux_data_provision, json_file)
 
+def set_aws_authentication(aws_access_key_id: str, aws_secret_access_key: str):
+    config = SHConfig()
+    config.aws_access_key_id = aws_access_key_id
+    config.aws_secret_access_key = aws_secret_access_key
+    config.save()
+
+    #import pdb
+    #pdb.set_trace()
+    #data_stores_file = _get_data_stores_file()
+    #aux_data_provider_file = _get_aux_data_provider_file()
+    #_set_aws_authentication_to_data_stores_file(aws_access_key_id, aws_secret_access_key, data_stores_file)
+    #_set_aws_authentication_to_aux_data_provider_file(aws_access_key_id, aws_secret_access_key, aux_data_provider_file)
+
+def _set_aws_authentication_to_data_stores_file(aws_access_key_id: str, aws_secret_access_key: str, data_stores_file: str):
+    from sentinelhub import SHConfig
+    config = SHConfig()
+    config.aws_access_key_id = access_key_id
+    config.aws_secret_access_key = aws_secret_access_key
+    config.save()
+    
+    #stream = open(data_stores_file, 'r')
+    #data_store_lists = yaml.safe_load(stream)
+    #for data_store_entry in data_store_lists:
+    #    if data_store_entry['DataStore']['FileSystem']['type'] == 'AwsS2FileSystem':
+    #        data_store_entry['DataStore']['FileSystem']['parameters']['access_key_id'] = access_key_id
+    #        data_store_entry['DataStore']['FileSystem']['parameters']['secret_access_key'] = secret_access_key
+    #stream.close()
+    #with open(data_stores_file, 'w') as file:
+    #from sentinelhub import SHConfig
+    config = SHConfig()
+    config.aws_access_key_id = access_key_id
+    config.aws_secret_access_key = aws_secret_access_key
+    config.save()  
+    # yaml.dump(data_store_lists, file, default_flow_style=False)
+
+def _set_aws_authentication_to_aux_data_provider_file(access_key_id: str, secret_access_key: str,
+                                                        aux_data_provider_file: str):
+    with open(aux_data_provider_file, "r") as json_file:
+        aux_data_provision = json.load(json_file)
+        if 'access_key_id' in aux_data_provision:
+            aux_data_provision['access_key_id'] = access_key_id
+        if 'secret_access_key' in aux_data_provision:
+            aux_data_provision['secret_access_key'] = secret_access_key
+    with open(aux_data_provider_file, "w") as json_file:
+        json.dump(aux_data_provision, json_file)
 
 def set_permissions(file_refs: List[Union[str, FileRef]]):
     for file_ref in file_refs:

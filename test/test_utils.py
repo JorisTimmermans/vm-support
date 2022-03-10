@@ -118,7 +118,7 @@ def test_create_sar_config_file():
                 {"SAR": {
                     'input_folder': './test/test_data/s1_slc',
                     'output_folder': './test/test_data/s1_grd',
-                    'gpt': '/software/snap/bin/gpt',
+                    'gpt': '/home/jtimmer1/software/snap/bin/gpt',
                     'speckle_filter': {'multi_temporal': {'apply': 'yes'}},
                     'region':
                         {'ul': {

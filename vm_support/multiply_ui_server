@@ -15,7 +15,7 @@
 
 INSTANCE_NAME=multiply_ui_server
 
-CONDA_DIR=/software/miniconda
+CONDA_DIR=/home/joris/software/miniconda
 
 RUN_AS=ubuntu
 
