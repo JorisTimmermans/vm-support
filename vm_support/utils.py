@@ -232,6 +232,18 @@ def set_up_data_stores():
             data_store_entry['DataStore']['MetaInfoProvider']['parameters']['path_to_json_file'] = \
                 data_store_entry['DataStore']['MetaInfoProvider']['parameters']['path_to_json_file']. \
                     replace('{user}', username)
+        if 'path' in data_store_entry['DataStore']['FileSystem']['parameters']:
+            data_store_entry['DataStore']['FileSystem']['parameters']['path'] = \
+                data_store_entry['DataStore']['FileSystem']['parameters']['path']. \
+                    replace('{user}', username)
+        if 'path_to_vrt_file' in data_store_entry['DataStore']['FileSystem']['parameters']:
+            data_store_entry['DataStore']['FileSystem']['parameters']['path_to_vrt_file'] = \
+                data_store_entry['DataStore']['FileSystem']['parameters']['path_to_vrt_file']. \
+                    replace('{user}', username)
+        if 'path_to_vrt_file' in data_store_entry['DataStore']['MetaInfoProvider']['parameters']:
+            data_store_entry['DataStore']['MetaInfoProvider']['parameters']['path_to_vrt_file'] = \
+                data_store_entry['DataStore']['MetaInfoProvider']['parameters']['path_to_vrt_file']. \
+                    replace('{user}', username)
 
     stream.close()
     with open(data_stores_file, 'w') as file:
