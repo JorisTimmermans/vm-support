@@ -1,7 +1,7 @@
 - DataStore:
     FileSystem:
       parameters:
-        path: /Data/archive/
+        path: /home/{user}/data/archive/
         pattern: '/dt/'
         temp_dir: /home/{user}/.multiply/temp/aws_s2/
       type: AwsS2FileSystem
@@ -13,8 +13,8 @@
 - DataStore:
     FileSystem:
       parameters:
-        path: /Data/archive/
-        pattern: /dt/yy/
+        path: /home/{user}/data/archive/
+        pattern: /dt/YY/
         temp_dir: /home/{user}/.multiply/temp/cams/
         url: http://www2.geog.ucl.ac.uk/~ucfafyi/cams/
       type: HttpFileSystem
@@ -28,8 +28,8 @@
 - DataStore:
     FileSystem:
       parameters:
-        path: /Data/archive/
-        pattern: /dt/yy/
+        path: /home/{user}/data/archive/
+        pattern: /dt/YY/
         temp_dir: /home/{user}/.multiply/temp/cams_tiff/
         url: http://www2.geog.ucl.ac.uk/~ucfafyi/cams/
       type: HttpFileSystem
@@ -43,7 +43,7 @@
 - DataStore:
     FileSystem:
       parameters:
-        path: /Data/archive/emus/
+        path: /home/{user}/data/archive/emus/
         pattern: /dt/
         temp_dir: /home/{user}/.multiply/temp/emus/
         url: http://www2.geog.ucl.ac.uk/~ucfafyi/emus/
@@ -58,7 +58,7 @@
 - DataStore:
     FileSystem:
       parameters:
-        path: /Data/archive/emus/
+        path: /home/{user}/data/archive/emus/
         pattern: /dt/
         temp_dir: /home/{user}/.multiply/temp/emus/
         url: http://www2.geog.ucl.ac.uk/~ucfafyi/emus/
@@ -75,8 +75,8 @@
       parameters:
         accessed_file_system: HttpFileSystem
         encapsulated_data_type: ASTER
-        path: /Data/archive/DEM/
-        path_to_vrt_file: /Data/archive/DEM/aster_dem.vrt
+        path: /home/{user}/data/archive/DEM/
+        path_to_vrt_file: /home/{user}/data/archive/DEM/aster_dem.vrt
         pattern: /dt/
         temp_dir: /home/{user}/.multiply/temp/aster/
         url: http://www2.geog.ucl.ac.uk/~ucfafyi/eles/
@@ -87,7 +87,7 @@
         accessed_meta_info_provider: HttpMetaInfoProvider
         encapsulated_data_type: ASTER
         path_to_json_file: /home/{user}/.multiply/aster_dem_store.json
-        path_to_vrt_file: /Data/archive/DEM/aster_dem.vrt
+        path_to_vrt_file: /home/{user}/data/archive/DEM/aster_dem.vrt
         provided_data_type: Aster_DEM
         url: http://www2.geog.ucl.ac.uk/~ucfafyi/eles/
       type: VrtMetaInfoProvider
@@ -95,8 +95,8 @@
     FileSystem:
       parameters:
         password: None
-        path: /Data/archive/
-        pattern: /dt/yy/mm/dd/
+        path: /home/{user}/data/archive/
+        pattern: /dt/YY/MM/DD/
         temp_dir: /home/{user}/.multiply/temp/modis_mcd43a1/
         username: None
       type: LpDaacFileSystem
@@ -108,8 +108,8 @@
 - DataStore:
     FileSystem:
       parameters:
-        path: /Data/archive/
-        pattern: /dt/yy/mm/dd/
+        path: /home/{user}/data/archive/
+        pattern: /dt/YY/MM/DD/
       type: LocalFileSystem
     Id: S2L2
     MetaInfoProvider:
