@@ -17,7 +17,7 @@ setup(name='vm-support',
       description='Support for MULTIPLY VM',
       author='MULTIPLY Team',
       packages=['vm_support', 'vm_support.tools'],
-      data_files={'vm_support_conf': ['vm_support/*.yml']},
+      include_package_data=True,
       entry_points={
             'aux_data_provider_creators': ['mundi_aux_data_provider_creator = '
                                            'vm_support:mundi_aux_data_provider.MundiAuxDataProviderCreator']
