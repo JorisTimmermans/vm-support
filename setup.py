@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # requirements = [
 #     'pytest',
@@ -16,7 +16,9 @@ setup(name='vm-support',
       version=__version__,
       description='Support for MULTIPLY VM',
       author='MULTIPLY Team',
-      packages=['vm_support', 'vm_support.tools'],
+
+      # packages=['vm_support', 'vm_support.tools'],
+      packages=find_packages(),
       include_package_data=True,
       entry_points={
             'aux_data_provider_creators': ['mundi_aux_data_provider_creator = '
