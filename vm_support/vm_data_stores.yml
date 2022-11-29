@@ -117,3 +117,15 @@
         path_to_json_file: /home/{user}/.multiply/s2_l2_store.json
         supported_data_types: AWS_S2_L2
       type: JsonMetaInfoProvider
+# - DataStore:
+#     FileSystem:
+#       parameters:
+#         path: /home/jtimmer1/data/archive/
+#         pattern: /dt/
+#         temp_dir: /home/jtimmer1/.multiply/temp/scihub_s2/
+#       type: SciHubFileSystem
+#     Id: scihub_s2
+#     MetaInfoProvider:
+#       parameters:
+#         path_to_json_file: /home/jtimmer1/.multiply/scihub_s2_store.json
+#       type: SciHubMetaInfoProvider
