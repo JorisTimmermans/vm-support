@@ -15,6 +15,8 @@ from typing import List, Optional, Union
 from shapely.wkt import loads
 from sentinelhub import SHConfig
 
+access_key_id = ''
+
 MULTIPLY_DIR_NAME = '.multiply'
 AUX_DATA_PROVIDER_FILE_NAME = 'aux_data_provider.json'
 DATA_STORES_FILE_NAME = 'data_stores.yml'

@@ -2,6 +2,8 @@ import os.path
 import pytest
 import shutil
 from vm_support.updates import _is_newer_than, _clone_new_repo
+import urllib.request
+import zipfile
 
 __author__ = "Tonio Fincke (Brockmann Consult GmbH)"
 

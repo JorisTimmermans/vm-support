@@ -18,7 +18,7 @@ def get_static_data(data_access_component: DataAccessComponent, roi: str, roi_gr
     create_dir(dem_directory)
 
     rg = roi_grid
-    if roi_grid is 'none':
+    if not roi_grid:
         rg = None
 
     print('Retrieving emulators ...')
@@ -47,7 +47,7 @@ def get_dynamic_data(data_access_component: DataAccessComponent, roi: str, roi_g
     modis_end_time = datetime.datetime.strftime(modis_end, '%Y-%m-%d')
 
     rg = roi_grid
-    if roi_grid is 'none':
+    if not roi_grid:
         rg = None
 
     print('Retrieving MODIS BRDF descriptors ...')
@@ -232,7 +232,8 @@ def infer3(roi: str, start_date: str, end_date: str, previous_state: str, priors
                            roi_grid, destination_grid, False)
 
     print('Finished Inference of S2 data')
-
+    datasets_dir = ''
+    forward_models = ''
     infer(start_date,
           end_date,
           parameter_list,
