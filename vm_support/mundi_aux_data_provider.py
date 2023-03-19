@@ -56,27 +56,27 @@ class MundiAuxDataProvider(AuxDataProvider):
             obs_client.close()
         return file_names
 
-    def assure_element_provided(self, name: str) -> bool:
-        if os.path.exists(name):
-            return True
-        from com.obs.client.obs_client import ObsClient
-        name = name.replace('\\', '/')
-        base_folder = os.path.abspath(os.path.join(name, os.pardir))
-        path_to_bucket_info_file = f'{base_folder}/bucket_info.json'
-        with open(path_to_bucket_info_file, "r") as bucket_info_file:
-            bucket_info = json.load(bucket_info_file)
-            prefixes = bucket_info['prefixes']
-            for prefix in prefixes:
-                key = f"{prefix}{name.split('/')[-1]}"
-                obs_client = ObsClient(access_key_id=self._access_key_id,
-                                       secret_access_key=self._secret_access_key,
-                                       server=_MUNDI_SERVER)
-                resp = obs_client.getObject(bucketName=bucket_info['bucket'], objectKey=key, downloadPath=name)
-                if resp.status < 300:
-                    logging.info(f"Downloaded from bucket {bucket_info['bucket']} and prefix {key} to {name}")
-                    obs_client.close()
-                    break
-        return os.path.exists(name)
+    # def assure_element_provided(self, name: str) -> bool:
+    #     if os.path.exists(name):
+    #         return True
+    #     from com.obs.client.obs_client import ObsClient
+    #     name = name.replace('\\', '/')
+    #     base_folder = os.path.abspath(os.path.join(name, os.pardir))
+    #     path_to_bucket_info_file = f'{base_folder}/bucket_info.json'
+    #     with open(path_to_bucket_info_file, "r") as bucket_info_file:
+    #         bucket_info = json.load(bucket_info_file)
+    #         prefixes = bucket_info['prefixes']
+    #         for prefix in prefixes:
+    #             key = f"{prefix}{name.split('/')[-1]}"
+    #             obs_client = ObsClient(access_key_id=self._access_key_id,
+    #                                    secret_access_key=self._secret_access_key,
+    #                                    server=_MUNDI_SERVER)
+    #             resp = obs_client.getObject(bucketName=bucket_info['bucket'], objectKey=key, downloadPath=name)
+    #             if resp.status < 300:
+    #                 logging.info(f"Downloaded from bucket {bucket_info['bucket']} and prefix {key} to {name}")
+    #                 obs_client.close()
+    #                 break
+    #     return os.path.exists(name)
 
 
 class MundiAuxDataProviderCreator(AuxDataProviderCreator):
