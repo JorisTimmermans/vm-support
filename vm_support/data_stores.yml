@@ -34,14 +34,14 @@
         path: /data/archive/emus/
         pattern: /dt/
         temp_dir: /data/temp/emus/
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/emus/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/emus/
       type: HttpFileSystem
     Id: emulators
     MetaInfoProvider:
       parameters:
         path_to_json_file: /home/ubuntu/.multiply/emus_store.json
         supported_data_types: ISO_MSI_A_EMU,ISO_MSI_B_EMU
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/emus/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/emus/
       type: HttpMetaInfoProvider
 - DataStore:
     FileSystem:
@@ -49,14 +49,14 @@
         path: /data/archive/emus/
         pattern: /dt/
         temp_dir: /data/temp/emus/
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/emus/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/emus/
       type: HttpFileSystem
     Id: wv_emulator
     MetaInfoProvider:
       parameters:
         path_to_json_file: /home/ubuntu/.multiply/emus/wv_emu_store.json
         supported_data_types: WV_EMU
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/emus/old_emus/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/emus/
       type: HttpMetaInfoProvider
 - DataStore:
     FileSystem:
