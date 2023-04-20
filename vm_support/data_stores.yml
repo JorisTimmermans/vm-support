@@ -4,14 +4,14 @@
         path: /data/archive/
         pattern: /dt/yy/
         temp_dir: /data/temp/cams/
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/cams/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/cams/
       type: HttpFileSystem
     Id: cams
     MetaInfoProvider:
       parameters:
         path_to_json_file: /home/ubuntu/.multiply/cams_store.json
         supported_data_types: CAMS
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/cams/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/cams/
       type: HttpMetaInfoProvider
 - DataStore:
     FileSystem:
@@ -19,14 +19,14 @@
         path: /data/archive/
         pattern: /dt/yy/
         temp_dir: /data/temp/cams_tiff/
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/cams/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/cams/
       type: HttpFileSystem
     Id: cams_tiff
     MetaInfoProvider:
       parameters:
         path_to_json_file: /home/ubuntu/.multiply/cams_tiff_store.json
         supported_data_types: CAMS_TIFF
-        url: http://www2.geog.ucl.ac.uk/~ucfafyi/cams/
+        url: https://gws-access.jasmin.ac.uk/public/nceo_ard/cams/
       type: HttpMetaInfoProvider
 - DataStore:
     FileSystem:
