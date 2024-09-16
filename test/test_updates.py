@@ -2,8 +2,18 @@ import os.path
 import pytest
 import shutil
 from vm_support.updates import _is_newer_than, _clone_new_repo
+import urllib.request
+import zipfile
 
 __author__ = "Tonio Fincke (Brockmann Consult GmbH)"
+
+test_data_save_path = '/tmp/data-access-test_data.zip'
+if not os.path.exists(test_data_save_path):
+    urllib.request.urlretrieve('https://github.com/QCDIS/vm-support/raw/master/test/test_data.zip', test_data_save_path)
+    with zipfile.ZipFile(test_data_save_path, 'r') as zip_ref:
+        zip_ref.extractall('/tmp')
+    zip_ref.close()
+base_path = '/tmp/test_data/'
 
 
 def test_is_newer_than():
@@ -19,7 +29,7 @@ def test_is_newer_than():
 
 @pytest.mark.skip
 def test_clone_new_repo():
-    base_dir = './test/test_dir_clone_repo'
+    base_dir = base_path + 'test_dir_clone_repo'
     os.makedirs(base_dir)
     try:
         required_repo = {'name': 'MULTIPLY Inference Engine',

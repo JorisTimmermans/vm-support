@@ -2,13 +2,31 @@ name: multiply-vms-dev
 
 channels:
   - conda-forge
-  - defaults
-
 dependencies:
-  - python =3.6*
-  #
-  # runtime dependencies
-  #
-  - gitpython = 2.1.11
-  - pyyaml = 3.12
-  - pytest =3.8.0
+  - python=>3.8
+  - gdal=2.4
+  - libgdal
+  - pyproj
+  - sentinelhub
+  - pyyaml
+  - numpy
+  - scipy
+  - setuptools
+  - gcc=12.1.0
+  - cxx-compiler
+  - libgcc
+  - libstdcxx-ng
+  - lazrs-python
+  - laspy
+  - pyyaml
+  - setuptools
+  - pytest
+  - flake8
+  - scipy
+  - shapely
+  - pytest-shutil
+  - gitpython
+  - pip
+  - pip:
+      - .
+      - git+https://github.com/QCDIS/multiply-core.git
